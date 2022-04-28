@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <!--util注入List使用 util:list 标签-->
+    <util:list id="list">
+        <value>集合元素1</value>
+        <value>集合元素2</value>
+    </util:list>
+
+    <!--util注入Map使用 util:map 标签-->
+    <util:map id="map">
+        <entry key="mapKey1" value="mapValue1"/>
+        <entry key="mapKey2" value="mapValue2"/>
+    </util:map>
+
+    <!--1. 集合属性注入-->
+    <bean id="stu" class="com.th.Spring.demo04.Student">
+
+        <!--util list-->
+        <!--想要在 property 中引用 util, 需要使用ref元素来指向util的id-->
+        <property name="list" ref="list"/>
+        <!--util map-->
+        <property name="map" ref="map"/>
+
+        <!--课程-->
+        <!--<property name="courses" ref="coursesList"/>-->
+        <property name="courses">
+            <list>
+                <value>Spring</value>
+                <value>SpringBoot</value>
+            </list>
+        </property>
+
+        <!--知识-->
+        <property name="language">
+            <list>
+                <value>Chinese</value>
+                <value>English</value>
+            </list>
+        </property>
+
+        <!--课本-->
+
+        <property name="books">
+            <list>
+                <ref bean="book"/>
+                <ref bean="book1"/>
+            </list>
+        </property>
+
+        <!--成绩-->
+
+        <property name="testScores">
+            <map>
+                <entry key="Spring" value="100"/>
+                <entry key="SpringBoot" value="100"/>
+            </map>
+        </property>
+
+        <!--set-->
+
+        <property name="addressBook">
+            <set>
+                <value>liliLady</value>
+                <value>MaryMadam</value>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="book" class="com.th.Spring.demo04.Book">
+        <property name="name" value="java"/>
+    </bean>
+    <bean id="book1" class="com.th.Spring.demo04.Book">
+        <property name="name" value="java"/>
+    </bean>
+
+
+</beans>

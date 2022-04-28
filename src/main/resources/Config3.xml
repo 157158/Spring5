@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="cat" class="com.th.Spring.demo03.Cat">
+        <property name="colour" value="red"/>
+        <property name="model" value="lamborghini"/>
+        <property name="driver" ref="driver" />
+        <!--通过级联属性 赋值-->
+        <property name="driver.name" value="tom" />
+    </bean>
+
+    <bean id="driver" class="com.th.Spring.demo03.Driver">
+    </bean>
+
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--使用配置文件创建-->
+
+    <!--使用bean元素定义一个由IOC容器创建的对象-->
+    <!-- class属性指定用于创建bean的全类名 -->
+    <!-- id属性指定用于引用bean实例的标识 -->
+    <bean class="com.th.Spring.demo01.Student" id="stu">
+        <!-- 使用property子元素为bean的属性赋值 -->
+        <property name="stuId" value="1"/>
+        <property name="stuName" value="tom"/>
+        <!--<null/> 表示为此属性注入空值-->
+        <property name="stuAge">
+            <value><![CDATA[999]]></value>
+        </property>
+
+    </bean>
+
+
+
+
+
+</beans>
